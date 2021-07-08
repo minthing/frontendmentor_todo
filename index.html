@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Todo app</title>
+  <style>
+    html,body{
+      height: 100%;
+    }
+    textarea:focus, input:focus{
+    outline: none;
+    }
+    body{
+      font-family: 'Josefin Sans', sans-serif;
+      display: flex;
+      padding-top: 5rem;
+      justify-content: center;
+      background: top/contain no-repeat url(images/bg-desktop-dark.jpg) hsl(235, 21%, 11%);
+    }
+    main{
+      width: 40vw;
+    }
+    .wrap_header{
+      height: 100px;
+      padding-top: 10%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+    }
+    .title{
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .icon_theme{
+      display: block;
+      background: url(images/icon-moon.svg);
+      width: 26px;
+      height: 26px;
+    }
+    .wrap_todo{
+      margin-top: 7vh;
+    }
+    .wrap_input{
+      width: 100%;
+      padding: 1em 1em 0.8em 1em;
+      background-color: hsl(235, 24%, 19%);
+      border-radius: 0.3rem;
+      box-sizing: border-box;
+    }
+    .input_todo{
+      width: 100%;
+      background: hsl(235, 24%, 19%);
+      height: 100%;
+      border:none;
+      color: hsl(234, 39%, 85%);
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .wrap_box{
+      margin-top: 25px;
+      background: hsl(235, 24%, 19%);
+      border-radius: 0.3rem;
+    }
+    .item_todo{
+      padding: 1em 1em 0.8em 1em;
+      border-bottom: 1px solid hsl(234, 11%, 52%);
+      display: grid;
+      grid-template-columns: 1fr 13fr 1fr;
+    }
+    .wrap_check{
+      position: relative;
+    }
+    .check_todo{
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    .wrap_check span{
+      width: 15px;
+      height: 15px;
+      display: block;
+      position: absolute;
+      border: 1px solid hsl(234, 39%, 85%);
+      border-radius: 50%;
+    }
+    .check_todo:hover ~ .check_todo:before{
+      background: hsl(234, 39%, 85%);
+    }
+    .text_todo{
+      display: inline-block;
+      color: hsl(234, 39%, 85%);
+      font-size: 18px;
+      line-height: 23px;
+    }
+    .item_delete{
+      cursor: pointer;
+      background-color: hsl(235, 24%, 19%);
+      border: none;
+    }
+    .light .icon_theme{
+      background: url(images/icon-sun.svg);
+      border-radius: 0.3rem;
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="wrap_header">
+      <h1 class="title">TO DO</h1>
+      <span class="icon_theme"></span>
+    </div>
+    <div class="wrap_todo">
+      <div class="wrap_input">
+        <input class="input_todo" type="text" placeholder="let's do something...">
+      </div>
+      <div class="wrap_box">
+      <ul class="list_todo" role="list">
+        <li class="item_todo">
+          <div class="wrap_check"><input type="checkbox" aria-label="checkbox" class="check_todo" name="checkbox" id="checkbox"><span class="todo_mark"></span></div> <label for="checkbox" class="text_todo">make this to do list done‼️</label>
+          <button aria-label="Remove" class="item_delete"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
+        </li>
+      </ul>
+      <div class="footer">
+        <div class="left_footer">
+          <p class="todo_count">0 items left</p>
+        </div>
+        <div class="footer_select">
+          <button class="button_todo all">All</button
+          ><button class="=button_todo active">Active</button
+          ><button class="button_todo completed">Completed</button>
+        </div>
+        <div><button class="button_todo clear">Clear Completed</button></div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
