@@ -133,7 +133,7 @@
       cursor: pointer;
       border: none;
       background: none;
-      color: hsl(234, 39%, 85%);
+      color: hsl(234, 11%, 52%);
       font-size: 13px;
       text-align: center;
       font-family: 'Josefin Sans', sans-serif;
@@ -149,6 +149,12 @@
     }
     .footer_clear .button_todo{
       font-weight: 300;
+    }
+    .button_todo:hover{
+      color:hsl(234, 39%, 85%);
+    }
+    .button_todo.active{
+      color:hsl(220, 98%, 61%);
     }
     .light .icon_theme{
       background: url(images/icon-sun.svg);
@@ -185,9 +191,9 @@
           <p class="todo_count">0 items left</p>
         </div>
         <div class="footer_select">
-          <button class="button_todo all">All</button
-          ><button class="button_todo active">Active</button
-          ><button class="button_todo completed">Completed</button>
+          <button class="button_todo button_all">All</button
+          ><button class="button_todo button_active">Active</button
+          ><button class="button_todo button_completed">Completed</button>
         </div>
         <div class="footer_clear"><button class="button_todo clear">Clear Completed</button></div>
       </div>
