@@ -56,9 +56,41 @@
   })
 
   // todo list item count 
-  const count_list = document.querySelector('.todo_count > em');
-  const list_length = document.querySelectorAll('.item_todo').length;
-  count_list.innerHTML = list_length;
+  function countTodo(){
+    const count_list = document.querySelector('.todo_count > em');
+    const list_length = document.querySelectorAll('.item_todo').length;
+    count_list.innerHTML = list_length;
+  }
+
+  countTodo();
+
+  const input_todo = document.querySelector('.input_todo');
+  const list_todo = document.querySelector('.list_todo');
+
+  input_todo.addEventListener("keyup", addTodo);
+
+  function addTodo(e) {
+  if (e.keyCode === 13 && input_todo.value != "") {
+    const new_item = document.createElement("li"); // 신규 생성
+    new_item.className = "item_todo"; // 클래스 지정
+    new_item.innerHTML = `
+    <div class="wrap_check"><input type="checkbox" aria-label="checkbox" class="check_todo" name="checkbox" id="checkbox"><span class="todo_mark"></span></div> <label for="checkbox" class="text_todo">${input_todo.value}</label>
+    <button aria-label="Remove" class="item_delete"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>`;
+    list_todo.appendChild(new_item);
+    input_todo.value = '';
+    countTodo();
+  }
+}
+
+// remove item
+  const item_delete = document.querySelectorAll('.item_delete');
+    list_todo.addEventListener("click", e =>{
+      if((e.target.tagName == "svg") && (e.target.parentNode.classList.contains("item_delete"))|| e.target.classList.contains("item_delete")){
+        const targetItem = e.target.closest("li");
+        targetItem.remove();
+      }
+    })
+
 </script>
 </body>
 </html>
