@@ -24,8 +24,8 @@
       <div class="wrap_box">
       <ul class="list_todo">
         <li class="item_todo" data-index="0">
-          <div class="wrap_check"><input type="checkbox" aria-label="checkbox" class="check_todo" name="checkbox" id="checkbox"><span class="todo_mark"></span></div> <label for="checkbox" class="text_todo">make this to do list done‼️</label>
-          <button aria-label="Remove" class="item_delete"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
+          <div class="wrap_check"><input type="checkbox" aria-span="checkbox" class="check_todo" name="checkbox" id="checkbox"><span class="todo_mark"></span></div> <span class="text_todo">make this to do list done‼️</span>
+          <button aria-span="Remove" class="item_delete"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
         </li>
       </ul>
       <div class="footer">
@@ -80,8 +80,8 @@
     const new_item = document.createElement("li"); // 신규 생성
     new_item.className = "item_todo"; // 클래스 지정
     new_item.innerHTML = `
-    <div class="wrap_check"><input type="checkbox" aria-label="checkbox" class="check_todo" name="checkbox" id="checkbox"><span class="todo_mark"></span></div> <label for="checkbox" class="text_todo">${input_todo.value}</label>
-    <button aria-label="Remove" class="item_delete"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>`;
+    <div class="wrap_check"><input type="checkbox" aria-span="checkbox" class="check_todo" name="checkbox" id="checkbox"><span class="todo_mark"></span></div> <span class="text_todo">${input_todo.value}</span>
+    <button aria-span="Remove" class="item_delete"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>`;
     list_todo.appendChild(new_item);
     input_todo.value = '';
     countTodo();
