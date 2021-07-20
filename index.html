@@ -33,9 +33,9 @@
           <p class="todo_count"><em>0</em> items left</p>
         </div>
         <div class="footer_select">
-          <button class="button_todo button_all">All</button
-          ><button class="button_todo button_active">Active</button
-          ><button class="button_todo button_completed">Completed</button>
+          <button class="button_todo button_all">All</button>
+          <button class="button_todo button_active">Active</button>
+          <button class="button_todo button_completed">Completed</button>
         </div>
         <div class="footer_clear"><button class="button_todo clear">Clear Completed</button></div>
       </div>
@@ -58,10 +58,16 @@
   // todo list item count 
   function countTodo(){
     const count_list = document.querySelector('.todo_count > em');
-    const list_length = document.querySelectorAll('.item_todo').length;
-    count_list.innerHTML = list_length;
+    const todo_items = document.querySelectorAll('.item_todo');
+    let count = todo_items.length;
+    todo_items.forEach((item) => {
+    const checkbox = item.querySelector('.wrap_check > .check_todo');
+    if (checkbox.checked) {
+      count --
+    }
+  });
+  count_list.innerHTML = count;
   }
-
   countTodo();
 
   const input_todo = document.querySelector('.input_todo');
@@ -89,7 +95,75 @@
         const targetItem = e.target.closest("li");
         targetItem.remove();
       }
+      countTodo();
     })
+
+// active button
+const active_button = document.querySelector('.button_active');
+const button_todo = document.querySelectorAll('.button_todo');
+
+active_button.addEventListener("click", (e) => {
+  button_todo.forEach((button) => {
+    button.classList.remove('active')
+  })
+  active_button.classList.add('active');
+  const todo_items = document.querySelectorAll(".item_todo");
+  todo_items.forEach((item) => {
+    const checkbox = item.querySelector('.wrap_check > .check_todo');
+    if (checkbox.checked) {
+      item.style.display = "none";
+    } else {
+      item.style.display = "";
+    }
+  });
+});
+
+// all button
+const all_button = document.querySelector('.button_all');
+all_button.addEventListener("click", (e) => {
+  const todo_items = document.querySelectorAll(".item_todo");
+  button_todo.forEach((button) => {
+    button.classList.remove('active')
+  })
+  all_button.classList.add('active');
+  todo_items.forEach((item) => {
+    item.style.display = "";
+  });
+});
+
+//complete button
+const complete_button = document.querySelector('.button_completed');
+
+complete_button.addEventListener("click", (e) => {
+  button_todo.forEach((button) => {
+    button.classList.remove('active')
+  })
+  complete_button.classList.add('active');
+  const todo_items = document.querySelectorAll(".item_todo");
+  todo_items.forEach((item) => {
+    const checkbox = item.querySelector('.wrap_check > .check_todo');
+    if (checkbox.checked) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+});
+
+// clear
+const clear_button = document.querySelector('.clear');
+clear_button.addEventListener("click", (e) => {
+  const todo_items = document.querySelectorAll(".item_todo");
+  todo_items.forEach((item) => {
+    const checkbox = item.querySelector('.wrap_check > .check_todo');
+    if(checkbox.checked){
+      item.remove();
+    }
+  });
+  countTodo();
+});
+
+
 
 </script>
 </body>
